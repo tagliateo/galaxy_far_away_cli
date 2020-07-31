@@ -1,7 +1,8 @@
 class Film
-  attr_accessor :title, :opening_crawl, :starships, :characters, :planets
+  attr_accessor :title, :opening_crawl, :starships, :planets
 
     @@all = []
+    
     def initialize(attr_hash)
         attr_hash.each do |k, v|
             self.send("#{k}=", v) if self.respond_to?("#{k}=")
@@ -17,8 +18,8 @@ class Film
       @@all
     end
 
-    def self.find_by_name(name)
-        self.all.select { |film| film.name.downcase == name.downcase}
+    def self.find_by_name(title)
+        self.all.select { |film| film.title.downcase == title.downcase}
     end
 
 end
