@@ -1,12 +1,13 @@
 class Film
-  attr_accessor :title, :opening_crawl, :starships, :planets
+  attr_accessor :title, :opening_crawl, :director, :producer, :release_date
 
     @@all = []
-    
+
     def initialize(attr_hash)
         attr_hash.each do |k, v|
             self.send("#{k}=", v) if self.respond_to?("#{k}=")
         end
+        # binding.pry
         save
     end
 

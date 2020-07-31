@@ -15,8 +15,9 @@ class GalaxyFarAwayCli::CLI
   def main_menu
     puts "What would you like to do?"
     puts "1. See a list of all Star Wars films"
-    puts "2. See All Characters"
-    puts "3. exit"
+    puts "2. See All Film Opening Crawls"
+    puts "3. See All Species"
+    puts "4. exit"
 
     @user_input = gets.chomp
 
@@ -27,6 +28,9 @@ class GalaxyFarAwayCli::CLI
       # see all Characters
       film_opening_crawl
     elsif @user_input == "3"
+      # specie
+      specie_list
+    elsif @user_input == "4"
       # exit
       goodbye
     else
@@ -41,16 +45,27 @@ class GalaxyFarAwayCli::CLI
     puts""
     puts ""
     puts "What movie would you like to know more about?"
-    @user_input = gets.strip.downcase
+    input = gets.strip.downcase
 
-    film_selection(@user_input)
+    film_selection(input)
   end
 
+  # def specie_list
+  #   Film.all.each_with_index do |specie, index|
+  #     puts "#{index + 1}. #{film.specie}"
+  # end
+
+  # end
+# gives a list of the films
   def film_selection(film)
-    f = Film.find_by_name(film)
-    binding.pry
+    Film.find_by_name(film)
+    # binding.pry
   end
 
+  # def specie_selector(species)
+  #   Film.find_by_name(species)
+  # end
+# displays the film crawl for each film
   def film_opening_crawl
     Film.all.each_with_index do |film, index|
       puts "#{index + 1}. #{film.opening_crawl}"
