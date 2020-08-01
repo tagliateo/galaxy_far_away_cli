@@ -9,7 +9,7 @@ require 'pry'
 require 'httparty'
 require 'json'
 require 'colorize'
-require 'rest-client'
+# require 'rest-client'
 
 
 

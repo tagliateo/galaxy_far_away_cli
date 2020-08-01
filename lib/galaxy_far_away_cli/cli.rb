@@ -58,17 +58,22 @@ class GalaxyFarAwayCli::CLI
     films = Film.find_by_name(film)
     # binding.pry
     films.each do |f|
+      puts ''
       puts "Title: #{f.title}"
       puts "Episode ID: #{f.episode_id}"
-      puts "Opening Crawl: #{f.opening_crawl}"
       puts "Producer(s): #{f.producer}"
       puts "Director(s): #{f.director}"
+      puts ''
+      puts "Opening Crawl:"
+      puts ''
+      puts "#{f.opening_crawl}"
+
     end
   end
 
   def display_film_information
       puts ''
-      Film.all.each do |film| 
+      Film.all.each do |film|
         puts "#{film.episode_id}. #{film.title}:".colorize(:red)
         puts "Director/s: #{film.director}"
         puts "Producer/s: #{film.producer}"
