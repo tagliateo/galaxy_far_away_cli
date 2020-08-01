@@ -29,7 +29,8 @@ class GalaxyFarAwayCli::CLI
       film_opening_crawl
     elsif @user_input == "3"
       # specie
-      specie_list
+      # specie_list
+      display_film_information
     elsif @user_input == "4"
       # exit
       goodbye
@@ -47,6 +48,7 @@ class GalaxyFarAwayCli::CLI
     puts "What movie would you like to know more about?"
     input = gets.strip.downcase
 
+    # if @user_input == "1"
     film_selection(input)
   end
 
@@ -66,6 +68,14 @@ class GalaxyFarAwayCli::CLI
   #   Film.find_by_name(species)
   # end
 # displays the film crawl for each film
+
+  def display_film_information
+      puts ''
+      film = Film.all.each { |film| puts "#{film.title}: #{film.opening_crawl} Director/s: #{film.director} Producer/s: #{film.producer}"}
+      puts ''
+      # film.select.with_index {|film, index| puts "#{index}. film" }
+  end
+
   def film_opening_crawl
     Film.all.each_with_index do |film, index|
       puts "#{index + 1}. #{film.opening_crawl}"
@@ -76,7 +86,9 @@ class GalaxyFarAwayCli::CLI
     puts "Invalid entry! Error! Try Again!".colorize(:red)
     main_menu
   end
+
   def goodbye
     puts "May the force be with you!"
   end
+
 end
