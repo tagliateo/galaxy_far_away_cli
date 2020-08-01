@@ -1,5 +1,5 @@
 class Film
-  attr_accessor :title, :opening_crawl, :director, :producer, :release_date
+  attr_accessor :title, :opening_crawl, :director, :producer, :release_date, :episode_id
 
     @@all = []
 

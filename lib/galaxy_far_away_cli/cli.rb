@@ -13,11 +13,14 @@ class GalaxyFarAwayCli::CLI
   end
 
   def main_menu
+    puts ''
     puts "What would you like to do?"
+    puts ''
     puts "1. See a list of all Star Wars films"
     puts "2. See All Film Opening Crawls"
-    puts "3. See All Species"
+    puts "3. See All Film Information"
     puts "4. exit"
+    puts ''
 
     @user_input = gets.chomp
 
@@ -28,8 +31,7 @@ class GalaxyFarAwayCli::CLI
       # see all Characters
       film_opening_crawl
     elsif @user_input == "3"
-      # specie
-      # specie_list
+      # returns all film information
       display_film_information
     elsif @user_input == "4"
       # exit
@@ -45,41 +47,46 @@ class GalaxyFarAwayCli::CLI
     end
     puts""
     puts ""
-    puts "What movie would you like to know more about?"
-    input = gets.strip.downcase
+    print "What movie would you like to know more about?"
+    @user_input = gets.strip.downcase
 
-    # if @user_input == "1"
-    film_selection(input)
-  end
-
-  # def specie_list
-  #   Film.all.each_with_index do |specie, index|
-  #     puts "#{index + 1}. #{film.specie}"
-  # end
-
-  # end
-# gives a list of the films
-  def film_selection(film)
-    Film.find_by_name(film)
+    film_selection(@user_input)
     # binding.pry
   end
 
-  # def specie_selector(species)
-  #   Film.find_by_name(species)
-  # end
-# displays the film crawl for each film
+  def film_selection(film)
+    films = Film.find_by_name(film)
+    # binding.pry
+    films.each do |f|
+      puts "Title: #{f.title}"
+      puts "Episode ID: #{f.episode_id}"
+      puts "Opening Crawl: #{f.opening_crawl}"
+      puts "Producer(s): #{f.producer}"
+      puts "Director(s): #{f.director}"
+    end
+  end
 
   def display_film_information
       puts ''
-      film = Film.all.each { |film| puts "#{film.title}: #{film.opening_crawl} Director/s: #{film.director} Producer/s: #{film.producer}"}
-      puts ''
-      # film.select.with_index {|film, index| puts "#{index}. film" }
+      Film.all.each do |film| 
+        puts "#{film.episode_id}. #{film.title}:".colorize(:red)
+        puts "Director/s: #{film.director}"
+        puts "Producer/s: #{film.producer}"
+        puts ''
+        puts "#{film.opening_crawl}"
+        puts ''
+      end
   end
 
   def film_opening_crawl
+    puts ''
     Film.all.each_with_index do |film, index|
-      puts "#{index + 1}. #{film.opening_crawl}"
+      puts ''
+      puts "#{index + 1}. #{film.title}".colorize(:cyan)
+      puts ''
+      puts "#{film.opening_crawl}"
     end
+    main_menu
   end
 
   def invalid_entry
