@@ -1,7 +1,7 @@
 class GalaxyFarAwayCli::CLI
 
   def call
-    # system (clear)
+    system ("clear")
     @user_input = nil
     welcome
     APIService.fetch_data
@@ -9,7 +9,9 @@ class GalaxyFarAwayCli::CLI
   end
 
   def welcome
+    puts "---------------------------------".colorize(:green)
     puts "--Welcome to a CLI far far away--".colorize(:green)
+    puts "---------------------------------".colorize(:green)
   end
 
   def main_menu
@@ -97,6 +99,11 @@ class GalaxyFarAwayCli::CLI
   def invalid_entry
     puts "Invalid entry! Error! Try Again!".colorize(:red)
     main_menu
+  end
+
+  def case_error
+    puts "Invalid entry! Try typing out the film name!".colorize(:red)
+    film_list
   end
 
   def goodbye
