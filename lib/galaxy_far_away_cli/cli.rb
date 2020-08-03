@@ -3,15 +3,19 @@ class GalaxyFarAwayCli::CLI
   def call
     system ("clear")
     @user_input = nil
-    welcome
     APIService.fetch_data
-    main_menu
+    welcome
+    until @user_input == "5"
+      main_menu
+    end
   end
 
   def welcome
-    puts "---------------------------------".colorize(:green)
+    puts "---------------------------------".colorize(:light_black)
+    puts "/////////////////////////////////".colorize(:light_black)
     puts "--Welcome to a CLI far far away--".colorize(:green)
-    puts "---------------------------------".colorize(:green)
+    puts "/////////////////////////////////".colorize(:light_black)
+    puts "---------------------------------".colorize(:light_black)
   end
 
   def main_menu
@@ -21,7 +25,8 @@ class GalaxyFarAwayCli::CLI
     puts "1. See a list of all Star Wars films"
     puts "2. See All Film Opening Crawls"
     puts "3. See All Film Information"
-    puts "4. exit"
+    puts "4. See a list of all Species in Star Wars"
+    puts "5. Exit"
     puts ''
 
     @user_input = gets.chomp
@@ -36,6 +41,9 @@ class GalaxyFarAwayCli::CLI
       # returns all film information
       display_film_information
     elsif @user_input == "4"
+      # returns all a list of species
+      species_list
+    elsif @user_input == "5"
       # exit
       goodbye
     else
@@ -49,9 +57,10 @@ class GalaxyFarAwayCli::CLI
     end
     puts""
     puts ""
-    print "What movie would you like to know more about?"
+    print "Please type out the name of the movie you would like to know more about?"
+    
     @user_input = gets.strip.downcase
-
+    
     film_selection(@user_input)
     # binding.pry
   end
@@ -96,6 +105,20 @@ class GalaxyFarAwayCli::CLI
     main_menu
   end
 
+  # creates a list of species
+  # def species_list
+  #   Species.all.each_with_index do |species, index|
+  #     puts "#{index + 1}. #{species.title}"
+  #   end
+  #   puts""
+  #   puts ""
+  #   print "What species would you like to know more about?"
+  #   @user_input = gets.strip.downcase
+
+  #   # film_selection(@user_input)
+  #   # binding.pry
+  # end
+
   def invalid_entry
     puts "Invalid entry! Error! Try Again!".colorize(:red)
     main_menu
@@ -107,7 +130,9 @@ class GalaxyFarAwayCli::CLI
   end
 
   def goodbye
-    puts "May the force be with you!"
+    puts ''
+    puts "May the force be with you!".colorize(:cyan)
+    puts ''
   end
 
 end
