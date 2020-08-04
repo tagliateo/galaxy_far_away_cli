@@ -4,6 +4,7 @@ class GalaxyFarAwayCli::CLI
     system ("clear")
     @user_input = nil
     APIService.fetch_data
+    APIService.fetch_species_data
     welcome
     until @user_input == "5"
       main_menu
@@ -58,9 +59,9 @@ class GalaxyFarAwayCli::CLI
     puts""
     puts ""
     print "Please type out the name of the movie you would like to know more about?"
-    
+
     @user_input = gets.strip.downcase
-    
+
     film_selection(@user_input)
     # binding.pry
   end
@@ -106,18 +107,31 @@ class GalaxyFarAwayCli::CLI
   end
 
   # creates a list of species
-  # def species_list
-  #   Species.all.each_with_index do |species, index|
-  #     puts "#{index + 1}. #{species.title}"
-  #   end
-  #   puts""
-  #   puts ""
-  #   print "What species would you like to know more about?"
-  #   @user_input = gets.strip.downcase
+  def species_list
+    Species.all.each_with_index do |species, index|
+      puts "#{index + 1}. #{species.name}"
+    end
+    puts""
+    puts ""
+    print "What species would you like to know more about?"
+    @user_input = gets.strip.downcase
 
-  #   # film_selection(@user_input)
-  #   # binding.pry
-  # end
+    species_selector(@user_input)
+    # binding.pry
+  end
+# :classification, :designation, :average_height, :hair_colors, :eye_colors, :language
+  def species_selector(species)
+    fauna = Species.find_by_name(species)
+    fauna.each do |s|
+      puts "Name: #{s.name}"
+      puts "Classification: #{s.classification}"
+      puts "Designation: #{s.designation}"
+      puts "Average Height: #{s.average_height}"
+      puts "Hair Color(s): #{s.hair_colors}"
+      puts "Eye Color(s): #{s.eye_colors}"
+      puts "Language: #{s.language}"
+    end
+  end
 
   def invalid_entry
     puts "Invalid entry! Error! Try Again!".colorize(:red)
