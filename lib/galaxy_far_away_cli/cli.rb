@@ -23,7 +23,7 @@ class GalaxyFarAwayCli::CLI
     puts ''
     puts "What would you like to do?"
     puts ''
-    puts "1. See a list of all Star Wars films"
+    puts "1. See a specific list of all Star Wars films"
     puts "2. See All Film Opening Crawls"
     puts "3. See All Film Information"
     puts "4. See a list of all Species in Star Wars"
@@ -119,7 +119,7 @@ class GalaxyFarAwayCli::CLI
     species_selector(@user_input)
     # binding.pry
   end
-# :classification, :designation, :average_height, :hair_colors, :eye_colors, :language
+# returns designated information
   def species_selector(species)
     fauna = Species.find_by_name(species)
     fauna.each do |s|
