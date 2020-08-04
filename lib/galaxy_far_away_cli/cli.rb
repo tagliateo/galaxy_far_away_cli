@@ -111,9 +111,10 @@ class GalaxyFarAwayCli::CLI
     Species.all.each_with_index do |species, index|
       puts "#{index + 1}. #{species.name}"
     end
-    puts""
+    puts ""
     puts ""
     print "What species would you like to know more about?"
+    puts ''
     @user_input = gets.strip.downcase
 
     species_selector(@user_input)
