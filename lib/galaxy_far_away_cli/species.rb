@@ -18,6 +18,7 @@ class Species
     end
 
     def self.find_by_name(name)
-        self.all.select {|species| species.name.downcase == name.downcase}
+        self.all.select {|species| species.name.downcase.gsub("'", "") == name.downcase.gsub("'", "")}
+        # binding.pry
     end
 end

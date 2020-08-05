@@ -60,18 +60,21 @@ class GalaxyFarAwayCli::CLI
 
   def film_selection(film)
     films = Film.find_by_name(film)
+    if films.length > 0
     # binding.pry
-    films.each do |f|
-      puts ''
-      puts "Title: #{f.title}"
-      puts "Episode ID: #{f.episode_id}"
-      puts "Producer(s): #{f.producer}"
-      puts "Director(s): #{f.director}"
-      puts ''
-      puts "Opening Crawl:"
-      puts ''
-      puts "#{f.opening_crawl}"
-
+      films.each do |f|
+        puts ''
+        puts "Title: #{f.title}"
+        puts "Episode ID: #{f.episode_id}"
+        puts "Producer(s): #{f.producer}"
+        puts "Director(s): #{f.director}"
+        puts ''
+        puts "Opening Crawl:"
+        puts ''
+        puts "#{f.opening_crawl}"
+      end
+    else 
+      case_error
     end
   end
 
