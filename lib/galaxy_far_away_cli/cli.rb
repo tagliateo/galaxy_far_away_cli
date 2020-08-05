@@ -96,25 +96,37 @@ class GalaxyFarAwayCli::CLI
   def species_selector(species)
     puts ''
     fauna = Species.find_by_name(species)
-    fauna.each do |s|
-      puts "Name: #{s.name}"
-      puts "Classification: #{s.classification}"
-      puts "Designation: #{s.designation}"
-      puts "Average Height: #{s.average_height}"
-      puts "Hair Color(s): #{s.hair_colors}"
-      puts "Eye Color(s): #{s.eye_colors}"
-      puts "Language: #{s.language}"
+    if fauna.length > 0
+      fauna.each do |s|
+        puts "Name: #{s.name}"
+        puts "Classification: #{s.classification}"
+        puts "Designation: #{s.designation}"
+        puts "Average Height: #{s.average_height}"
+        puts "Hair Color(s): #{s.hair_colors}"
+        puts "Eye Color(s): #{s.eye_colors}"
+        puts "Language: #{s.language}"
+      end
+    else
+      name_error
     end
   end
 
   def invalid_entry
     puts "Invalid entry! Error! Try Again!".colorize(:red)
+    puts ''
     main_menu
   end
 
   def case_error
     puts "Invalid entry! Try typing out the film name!".colorize(:red)
+    puts ''
     film_list
+  end
+
+  def name_error
+    puts "Invalid entry! Please retype the name!".colorize(:red)
+    puts ''
+    species_list
   end
 
   def goodbye
