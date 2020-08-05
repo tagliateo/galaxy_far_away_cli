@@ -36,7 +36,7 @@ class GalaxyFarAwayCli::CLI
       # see all Films
       film_list
     elsif @user_input == "2"
-      # see all Characters
+      # see all film crawls\
       film_opening_crawl
     elsif @user_input == "3"
       # returns all film information
@@ -58,7 +58,7 @@ class GalaxyFarAwayCli::CLI
     end
     puts""
     puts ""
-    print "Please type out the name of the movie you would like to know more about?"
+    print "Please type out the name of the movie you would like to know more about? "
 
     @user_input = gets.strip.downcase
 
@@ -113,8 +113,8 @@ class GalaxyFarAwayCli::CLI
     end
     puts ""
     puts ""
-    print "What species would you like to know more about?"
-    puts ''
+    print "What species would you like to know more about? "
+
     @user_input = gets.strip.downcase
 
     species_selector(@user_input)
@@ -122,6 +122,7 @@ class GalaxyFarAwayCli::CLI
   end
 # returns designated information
   def species_selector(species)
+    puts ''
     fauna = Species.find_by_name(species)
     fauna.each do |s|
       puts "Name: #{s.name}"
@@ -146,7 +147,7 @@ class GalaxyFarAwayCli::CLI
 
   def goodbye
     puts ''
-    puts "May the force be with you!".colorize(:cyan)
+    puts "May the force be with you!".colorize(:green)
     puts ''
   end
 
