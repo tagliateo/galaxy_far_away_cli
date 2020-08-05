@@ -6,7 +6,7 @@ class GalaxyFarAwayCli::CLI
     APIService.fetch_data
     APIService.fetch_species_data
     welcome
-    until @user_input == "5"
+    until @user_input == "3"
       main_menu
     end
   end
@@ -24,10 +24,8 @@ class GalaxyFarAwayCli::CLI
     puts "What would you like to do?"
     puts ''
     puts "1. See a specific list of all Star Wars films"
-    puts "2. See All Film Opening Crawls"
-    puts "3. See All Film Information"
-    puts "4. See a list of all Species in Star Wars"
-    puts "5. Exit"
+    puts "2. See a list of all Species in Star Wars"
+    puts "3. Exit"
     puts ''
 
     @user_input = gets.chomp
@@ -36,15 +34,9 @@ class GalaxyFarAwayCli::CLI
       # see all Films
       film_list
     elsif @user_input == "2"
-      # see all film crawls\
-      film_opening_crawl
-    elsif @user_input == "3"
-      # returns all film information
-      display_film_information
-    elsif @user_input == "4"
       # returns all a list of species
       species_list
-    elsif @user_input == "5"
+    elsif @user_input == "3"
       # exit
       goodbye
     else
@@ -81,29 +73,6 @@ class GalaxyFarAwayCli::CLI
       puts "#{f.opening_crawl}"
 
     end
-  end
-
-  def display_film_information
-      puts ''
-      Film.all.each do |film|
-        puts "#{film.episode_id}. #{film.title}:".colorize(:red)
-        puts "Director/s: #{film.director}"
-        puts "Producer/s: #{film.producer}"
-        puts ''
-        puts "#{film.opening_crawl}"
-        puts ''
-      end
-  end
-
-  def film_opening_crawl
-    puts ''
-    Film.all.each_with_index do |film, index|
-      puts ''
-      puts "#{index + 1}. #{film.title}".colorize(:cyan)
-      puts ''
-      puts "#{film.opening_crawl}"
-    end
-    main_menu
   end
 
   # creates a list of species
