@@ -11,29 +11,7 @@ class GalaxyFarAwayCli::CLI
     end
   end
 
-  def asci_art
-    asci = <<-ART
-      _____
-    .'/L|__`.
-   / =[_]O|` \
-   |"+_____":|
- __:='|____`-:__
-||[] ||====| []||
-||[] | |=| | []||
-|:||_|=|U| |_||:|
-|:|||]_=_ =[_||:| LS
-| |||] [_][]C|| |
-| ||-'"""""`-|| |
-/|\\_\_|_|_/_//|\
-|___|   /|\   |___|   R2 Astromech Droid
-`---'  |___|  `---'     - Front View -
-      `---'
-      ART
-    asci
-  end
-
   def welcome
-    asci_art
     puts "---------------------------------".colorize(:light_black)
     puts "/////////////////////////////////".colorize(:light_black)
     puts "--Welcome to a CLI far far away--".colorize(:green)
