@@ -1,8 +1,8 @@
 require_relative "galaxy_far_away_cli/version"
-require_relative "galaxy_far_away_cli/api"
+require_relative "galaxy_far_away_cli/services/api"
 require_relative "galaxy_far_away_cli/cli"
-require_relative "galaxy_far_away_cli/film"
-require_relative "galaxy_far_away_cli/species"
+require_relative "galaxy_far_away_cli/models/film"
+require_relative "galaxy_far_away_cli/models/species"
 
 
 
