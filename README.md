@@ -1,8 +1,10 @@
 # GalaxyFarAwayCli
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/galaxy_far_away_cli`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to a Galaxy Far Far Away! A Star Wars Ruby CLI!
+If you ever wanted to have random Star Wars trivia at the tips of your fingers then this is the CLI App for you!
 
-TODO: Delete this and the text above, and describe your gem
+Find out  interesting stuff about either a Star Wars film or a species residing in the universe!
+
 
 ## Installation
 
@@ -22,7 +24,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+
+All you have to do is run `bin/executable` and may the force be with you!
 
 ## Development
 
@@ -32,7 +35,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/galaxy_far_away_cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/galaxy_far_away_cli/blob/master/CODE_OF_CONDUCT.md).
+Bug reports and pull requests are welcome on GitHub at https://github.com/tedtke/galaxy_far_away_cli. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/tedtke/galaxy_far_away_cli/blob/master/CODE_OF_CONDUCT.md).
 
 
 ## License
@@ -41,4 +44,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the GalaxyFarAwayCli project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/galaxy_far_away_cli/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the GalaxyFarAwayCli project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/tedtke/galaxy_far_away_cli/blob/master/CODE_OF_CONDUCT.md).
