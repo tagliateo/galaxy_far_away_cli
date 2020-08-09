@@ -3,13 +3,14 @@
     1. class relationships
 
 - welcome user, prompt to either select a list, or tell exit
-    1. pokemon cards
-- user sees a list of randomly generated cards
-- user selects card by name to print details of card
+    1. star wars films
+- user sees a list of films
+- user selects a film by name to print details of that film
 - user selects exit, goodbye exit program
 -
 
-3 Classes:
-- Card (knows, stores, and creates cards)
+4 Classes:
+- Film (knows, stores, and creates films)
+- Species (knows, stores, and creates species)
 - CLI (interacts with the user)
-- API (Goes out and gets info for cards:instantiates objects)
+- API (Goes out and gets info for films:instantiates objects)

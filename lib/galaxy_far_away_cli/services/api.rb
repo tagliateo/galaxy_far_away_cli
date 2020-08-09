@@ -22,6 +22,5 @@ class APIService
       Species.new(species)
     end
   end
-  
 
 end
