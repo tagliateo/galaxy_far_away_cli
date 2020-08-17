@@ -58,26 +58,27 @@ class GalaxyFarAwayCli::CLI
     # binding.pry
   end
 
-  def film_selection(film)
-    films = Film.find_by_name(film)
-    if films.length > 0
+  def film_selection(name)
+    film = Film.find_by_name(name)
+    if film 
     # binding.pry
-      films.each do |f|
-        puts ''
-        puts "Title: #{f.title}"
-        puts "Episode ID: #{f.episode_id}"
-        puts "Producer(s): #{f.producer}"
-        puts "Director(s): #{f.director}"
-        puts ''
-        puts "Opening Crawl:"
-        puts ''
-        puts "#{f.opening_crawl}"
-      end
+      display_film(film)
     else 
       case_error
     end
   end
-
+  # displays film information
+  def display_film(film)
+    puts ''
+    puts "Title: #{film.title}"
+    puts "Episode ID: #{film.episode_id}"
+    puts "Producer(s): #{film.producer}"
+    puts "Director(s): #{film.director}"
+    puts ''
+    puts "Opening Crawl:"
+    puts ''
+    puts "#{film.opening_crawl}"
+  end
   # creates a list of species
   def species_list
     Species.all.each_with_index do |species, index|
@@ -92,23 +93,26 @@ class GalaxyFarAwayCli::CLI
     species_selector(@user_input)
     # binding.pry
   end
+
 # returns designated information
-  def species_selector(species)
+  def species_selector(name)
     puts ''
-    fauna = Species.find_by_name(species)
-    if fauna.length > 0
-      fauna.each do |s|
-        puts "Name: #{s.name}"
-        puts "Classification: #{s.classification}"
-        puts "Designation: #{s.designation}"
-        puts "Average Height: #{s.average_height}"
-        puts "Hair Color(s): #{s.hair_colors}"
-        puts "Eye Color(s): #{s.eye_colors}"
-        puts "Language: #{s.language}"
-      end
+    fauna = Species.find_by_name(name)
+    if fauna
+        display_species(fauna)
     else
       name_error
     end
+  end
+
+  def display_species(species)
+    puts "Name: #{species.name}"
+    puts "Classification: #{species.classification}"
+    puts "Designation: #{species.designation}"
+    puts "Average Height: #{species.average_height}"
+    puts "Hair Color(s): #{species.hair_colors}"
+    puts "Eye Color(s): #{species.eye_colors}"
+    puts "Language: #{species.language}"
   end
 
   def invalid_entry

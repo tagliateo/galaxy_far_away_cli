@@ -20,7 +20,7 @@ class Film
     end
 
     def self.find_by_name(title)
-        self.all.select { |film| film.title.downcase == title.downcase}
+        self.all.detect { |film| film.title.downcase == title.downcase}
     end
 
 end
