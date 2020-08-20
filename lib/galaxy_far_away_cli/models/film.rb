@@ -21,6 +21,7 @@ class Film
 
     def self.find_by_name(title)
         self.all.detect { |film| film.title.downcase == title.downcase}
+        # binding.pry
     end
 
 end
