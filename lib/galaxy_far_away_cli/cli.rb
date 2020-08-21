@@ -5,6 +5,7 @@ class GalaxyFarAwayCli::CLI
     @user_input = nil
     APIService.fetch_data
     APIService.fetch_species_data
+    # binding.pry
     welcome
     until @user_input == "3"
       main_menu
@@ -98,6 +99,7 @@ class GalaxyFarAwayCli::CLI
   def species_selector(name)
     puts ''
     fauna = Species.find_by_name(name)
+    # binding.pry
     if fauna
         display_species(fauna)
     else
